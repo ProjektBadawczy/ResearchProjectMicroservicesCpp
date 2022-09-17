@@ -1,6 +1,8 @@
 #pragma once
-#include "Graph.h"
-#include "BFSResult.h"
+#include "../Common/Graph.h"
+#include "../Common/BFSResult.h"
+#include "utils.h"
+#include "defines.h"
 #include <stdexcept>
 #include <cpprest/http_client.h>
 

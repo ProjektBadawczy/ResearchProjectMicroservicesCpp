@@ -36,7 +36,9 @@ void EdmondsKarpController::handleGet(http_request message)
             int destination = stoi(path[3]);
             // TODO
             // add actual communication to graph service
-            auto graph = new Graph(id, id, new int*[1]);
+            string request = GRAPH_SERVICE_URL + to_string(id);
+            string response = sendGetRequest(request);
+            auto graph = new Graph(response);
             auto result = edmondsKarpService->calculateMaxFlow(graph, source, destination);
             json::value resultJson;
             resultJson[to_string_t("result")] = json::value::number(result);
@@ -48,18 +50,4 @@ void EdmondsKarpController::handleGet(http_request message)
             message.reply(status_codes::BadRequest);
         }
     }
-}
-
-string EdmondsKarpController::sendGetRequest(const wchar_t* address)
-{
-    string ret = "";
-    http_client client(address);
-    client.request(methods::GET).then([=](http_response response)
-        {
-            if (response.status_code() == status_codes::OK)
-            {
-                auto body = response.extract_string().get();
-                ret = (body);
-            }
-        });
 }

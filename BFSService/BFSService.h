@@ -1,6 +1,6 @@
 #pragma once
-#include "BFSResult.h"
-#include "Graph.h"
+#include "../Common/BFSResult.h"
+#include "../Common/Graph.h"
 class BFSService
 {
 public:

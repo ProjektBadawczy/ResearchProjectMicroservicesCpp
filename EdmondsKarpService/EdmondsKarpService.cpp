@@ -20,6 +20,8 @@ int EdmondsKarpService::calculateMaxFlow(Graph* graph, int source, int destinati
 	int maxFlow = 0;
 	// TODO
 	// add actual communication with BFS microservice
+
+
 	auto intDummy = new int[4];
 	auto bfsResult = new BFSResult(intDummy, true);
 	while (bfsResult->getSuccess())

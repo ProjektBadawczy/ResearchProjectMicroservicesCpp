@@ -14,7 +14,6 @@ public:
     void initRestOpHandlers() override;
 private:
     EdmondsKarpService* edmondsKarpService;
-    string sendGetRequest(const wchar_t* address);
 };
 
 #endif // SERVICE_H_INCLUDED

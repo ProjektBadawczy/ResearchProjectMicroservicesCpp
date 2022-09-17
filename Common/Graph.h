@@ -5,6 +5,7 @@ class Graph
 {
 public:
 	Graph(int id, int numberOfVertices, int** adjacencyMatrix);
+    Graph(std::string text);
 	~Graph();
 	Graph* clone();
 	int getId();
