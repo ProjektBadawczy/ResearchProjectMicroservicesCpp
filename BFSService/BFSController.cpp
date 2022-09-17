@@ -25,6 +25,7 @@ void BFSController::handleGet(http_request message)
     }
     else 
     {
+        // WIP - need to change this to return actual value and not a dummy
         if (path[0] == to_string_t("bfs")) 
         {
             int id = stoi(path[1]);
