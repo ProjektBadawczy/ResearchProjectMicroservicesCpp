@@ -27,7 +27,8 @@ void GraphController::handleGet(http_request message)
     {
         if (path[0] == to_string_t("graph")) 
         {
-            int id = stoi(path[1]);
+            auto queries = requestQuery(message);
+            int id = stoi(queries[to_string_t("id")]);
             auto graph = graphService->getGraph(id);
             json::value graphJson;
             graphJson[to_string_t("graph")] = json::value::string(to_string_t(graph->toString()));

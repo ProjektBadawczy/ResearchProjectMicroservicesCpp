@@ -13,21 +13,21 @@ Graph::Graph(int id, int numberOfVertices, int** adjacencyMatrix)
 Graph::Graph(string text)
 {
     size_t pos = 0;
-    size_t nextComaPos = 0;
+    size_t nextCommaPos = 0;
     string idName = "id: ";
     string numberOfVerticesName = "numberOfVertices: ";
     string adjacencyMatrixName = "adjacencyMatrix: ";
     // find id value
     pos = text.find(idName, pos);
-    nextComaPos = text.find(",", pos);
-    int newId = stoi(text.substr(pos+idName.length(), nextComaPos - (pos + idName.length())));
+    nextCommaPos = text.find(",", pos);
+    int newId = stoi(text.substr(pos+idName.length(), nextCommaPos - (pos + idName.length())));
     // find numberOfVertices value
     pos = text.find(numberOfVerticesName, pos);
-    nextComaPos = text.find(",", pos);
+    nextCommaPos = text.find(",", pos);
     int newNumberOfVertices = stoi(text.substr(pos+adjacencyMatrixName.length(),
-                                               nextComaPos - (pos + numberOfVerticesName.length())));
+                                               nextCommaPos - (pos + numberOfVerticesName.length())));
     int** newAdjacencyMatrix = new int*[newNumberOfVertices];
-    for(int i = 0; i < newNumberOfVertices, i++)
+    for(int i = 0; i < newNumberOfVertices; i++)
     {
         newAdjacencyMatrix[i] = new int[newNumberOfVertices];
     }
@@ -38,18 +38,18 @@ Graph::Graph(string text)
     string stringNumber;
     for(int i = 0; i < newNumberOfVertices; i++)
     {
-        for(int j = 0; i < newNumberOfVertices; j++)
+        for(int j = 0; j < newNumberOfVertices; j++)
         {
             if (i < newNumberOfVertices - 1)
             {
-                nextComaPos = text.find(",", pos);
+                nextCommaPos = text.find(",", pos);
             } else
             {
-                nextComaPos = text.find("]", pos);
+                nextCommaPos = text.find("]", pos);
             }
-            stringNumber = text.substr(pos, nextComaPos - pos);
+            stringNumber = text.substr(pos, nextCommaPos - pos);
             newAdjacencyMatrix[i][j] = stoi(stringNumber);
-            pos = nextComaPos + 1;
+            pos = nextCommaPos + 1;
         }
         pos = pos + 2;
     }
@@ -128,5 +128,6 @@ string Graph::toString()
 		}
 	}
 	result += "]";
+	result += "}";
 	return result;
 }

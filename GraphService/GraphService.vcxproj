@@ -127,15 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BasicController.h" />
-    <ClInclude Include="Graph.h" />
+    <ClInclude Include="..\Common\BasicController.h" />
+    <ClInclude Include="..\Common\Graph.h" />
     <ClInclude Include="GraphController.h" />
     <ClInclude Include="GraphRepository.h" />
     <ClInclude Include="GraphService.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BasicController.cpp" />
-    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="..\Common\BasicController.cpp" />
+    <ClCompile Include="..\Common\Graph.cpp" />
     <ClCompile Include="GraphController.cpp" />
     <ClCompile Include="GraphRepository.cpp" />
     <ClCompile Include="GraphService.cpp" />

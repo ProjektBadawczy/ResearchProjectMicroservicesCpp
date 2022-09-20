@@ -1,6 +1,7 @@
 #include "EdmondsKarpService.h"
 #include <stdexcept>
 #include <climits>
+using namespace utility;
 
 
 EdmondsKarpService::EdmondsKarpService()
@@ -18,12 +19,12 @@ int EdmondsKarpService::calculateMaxFlow(Graph* graph, int source, int destinati
 	int u, v;
 	auto residualGraph = graph->clone();
 	int maxFlow = 0;
-	// TODO
-	// add actual communication with BFS microservice
-
-
-	auto intDummy = new int[4];
-	auto bfsResult = new BFSResult(intDummy, true);
+	std::string address = BFS_SERVICE_URL + std::string("bfs");
+	auto bfsRequest = new BFSRequest(residualGraph, source, destination);
+	web::json::value body;
+	body[U("request")] = web::json::value::string(conversions::to_string_t(bfsRequest->toString()));
+	auto response = sendPostRequest(address, body);
+	auto bfsResult = new BFSResult(response);
 	while (bfsResult->getSuccess())
 	{
 		int pathFlow = INT_MAX;
@@ -40,9 +41,11 @@ int EdmondsKarpService::calculateMaxFlow(Graph* graph, int source, int destinati
 		}
 		maxFlow += pathFlow;
 		delete bfsResult;
-		// TODO
-		// add actual communication with BFS microservice
-		bfsResult = new BFSResult(intDummy, true);
+		delete bfsRequest;
+		bfsRequest = new BFSRequest(residualGraph, source, destination);
+		body[U("request")] = web::json::value::string(conversions::to_string_t(bfsRequest->toString()));
+		response = sendPostRequest(address, body);
+		bfsResult = new BFSResult(response);
 	}
 	delete bfsResult;
 	delete residualGraph;

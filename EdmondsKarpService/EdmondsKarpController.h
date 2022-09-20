@@ -1,6 +1,6 @@
 #ifndef SERVICE_H_INCLUDED
 #define SERVICE_H_INCLUDED
-#include "BasicController.h"
+#include "../Common/BasicController.h"
 #include <vector>
 #include "EdmondsKarpService.h"
 #include "defines.h"

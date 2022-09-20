@@ -1,4 +1,5 @@
 #include "BFSController.h"
+#include "../Common/utils.h"
 #include <string>
 using std::string;
 
@@ -13,30 +14,29 @@ BFSController::~BFSController()
 
 void BFSController::initRestOpHandlers()
 {
-    listener.support(methods::GET, std::bind(&BFSController::handleGet, this, std::placeholders::_1));
+    listener.support(methods::POST, std::bind(&BFSController::handlePost, this, std::placeholders::_1));
 }
 
-void BFSController::handleGet(http_request message)
+void BFSController::handlePost(http_request message)
 {
     vector<utility::string_t> path = requestPath(message);
-    if (path.empty()) 
+    if (path.empty())
     {
         message.reply(status_codes::BadRequest);
     }
-    else 
+    else
     {
         // WIP - need to change this to return actual value and not a dummy
-        if (path[0] == to_string_t("bfs")) 
+        if (path[0] == to_string_t("bfs"))
         {
-            int id = stoi(path[1]);
-            int* tab = new int[2];
-            tab[0] = 1;
-            tab[1] = 1;
-            BFSResult* result = new BFSResult(tab, false);
+            string requestBody = stringTToString(message.extract_string().get());
+            BFSRequest* request = new BFSRequest(requestBody);
+            BFSResult* result = bfsService->bfs(request);
             json::value bfsJson;
-            bfsJson[to_string_t("bfs")] = json::value::string(to_string_t(result->getSuccess() == true ? "true" : "false"));
+            bfsJson[to_string_t("bfs")] = json::value::string(to_string_t(result->toString()));
             message.reply(status_codes::OK, bfsJson);
             delete result;
+            delete request;
         }
         else
         {

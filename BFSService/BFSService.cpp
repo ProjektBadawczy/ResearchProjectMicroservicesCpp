@@ -45,3 +45,8 @@ BFSResult* BFSService::bfs(Graph* graph, int source, int t)
 	delete[] visited;
 	return new BFSResult(parent, success, parentsSize);
 }
+
+BFSResult* BFSService::bfs(BFSRequest* request)
+{
+	return bfs(request->getGraph(), request->getSource(), request->getDestination());
+}

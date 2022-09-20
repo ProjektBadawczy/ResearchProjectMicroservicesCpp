@@ -1,5 +1,5 @@
 #pragma once
-#include "Graph.h"
+#include "../Common/Graph.h"
 using namespace std;
 class GraphRepository
 {

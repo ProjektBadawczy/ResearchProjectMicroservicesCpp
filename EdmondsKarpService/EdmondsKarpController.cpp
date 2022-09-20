@@ -31,13 +31,12 @@ void EdmondsKarpController::handleGet(http_request message)
     {
         if(path[0] == to_string_t("edmonds-karp"))
         {
-            int id = stoi(path[1]);
-            int source = stoi(path[2]);
-            int destination = stoi(path[3]);
-            // TODO
-            // add actual communication to graph service
-            string request = GRAPH_SERVICE_URL + to_string(id);
-            string response = sendGetRequest(request);
+            auto queries = requestQuery(message);
+            int id = stoi(queries[to_string_t("id")]);
+            int source = stoi(queries[to_string_t("source")]);
+            int destination = stoi(queries[to_string_t("destination")]);
+            string address = GRAPH_SERVICE_URL + string("graph?id=") + to_string(id);
+            string response = sendGetRequest(address);
             auto graph = new Graph(response);
             auto result = edmondsKarpService->calculateMaxFlow(graph, source, destination);
             json::value resultJson;

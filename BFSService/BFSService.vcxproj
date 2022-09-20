@@ -127,18 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BasicController.h" />
+    <ClInclude Include="..\Common\BasicController.h" />
+    <ClInclude Include="..\Common\BFSRequest.h" />
+    <ClInclude Include="..\Common\BFSResult.h" />
+    <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\utils.h" />
     <ClInclude Include="BFSController.h" />
-    <ClInclude Include="BFSResult.h" />
     <ClInclude Include="BFSService.h" />
-    <ClInclude Include="Graph.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BasicController.cpp" />
+    <ClCompile Include="..\Common\BasicController.cpp" />
+    <ClCompile Include="..\Common\BFSRequest.cpp" />
+    <ClCompile Include="..\Common\BFSResult.cpp" />
+    <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\utils.cpp" />
     <ClCompile Include="BFSController.cpp" />
-    <ClCompile Include="BFSResult.cpp" />
     <ClCompile Include="BFSService.cpp" />
-    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

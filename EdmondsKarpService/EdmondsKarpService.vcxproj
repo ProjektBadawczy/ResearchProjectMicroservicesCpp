@@ -19,19 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BasicController.h" />
-    <ClInclude Include="BFSResult.h" />
+    <ClInclude Include="..\Common\BasicController.h" />
+    <ClInclude Include="..\Common\BFSRequest.h" />
+    <ClInclude Include="..\Common\BFSResult.h" />
+    <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\utils.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="EdmondsKarpController.h" />
     <ClInclude Include="EdmondsKarpService.h" />
-    <ClInclude Include="Graph.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BasicController.cpp" />
-    <ClCompile Include="BFSResult.cpp" />
+    <ClCompile Include="..\Common\BasicController.cpp" />
+    <ClCompile Include="..\Common\BFSRequest.cpp" />
+    <ClCompile Include="..\Common\BFSResult.cpp" />
+    <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\utils.cpp" />
     <ClCompile Include="EdmondsKarpController.cpp" />
     <ClCompile Include="EdmondsKarpService.cpp" />
-    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
