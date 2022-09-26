@@ -2,6 +2,7 @@
 #include "../Common/utils.h"
 #include <string>
 using std::string;
+using namespace utility;
 
 BFSController::BFSController(const string& address, const string& port, BFSService* bfsService) : BasicController(address, port)
 {
@@ -29,11 +30,11 @@ void BFSController::handlePost(http_request message)
         // WIP - need to change this to return actual value and not a dummy
         if (path[0] == to_string_t("bfs"))
         {
-            string requestBody = stringTToString(message.extract_string().get());
+            string_t requestBody = message.extract_string().get();
             BFSRequest* request = new BFSRequest(requestBody);
             BFSResult* result = bfsService->bfs(request);
             json::value bfsJson;
-            bfsJson[to_string_t("bfs")] = json::value::string(to_string_t(result->toString()));
+            bfsJson[to_string_t("bfs")] = json::value::string(result->toString());
             message.reply(status_codes::OK, bfsJson);
             delete result;
             delete request;

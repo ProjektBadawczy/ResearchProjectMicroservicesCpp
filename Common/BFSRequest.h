@@ -9,10 +9,10 @@ private:
 	int destination;
 public:
 	BFSRequest(Graph* graph, int source, int destination);
-	BFSRequest(std::string text);
+	BFSRequest(utility::string_t text);
 	~BFSRequest();
 	Graph* getGraph();
 	int getSource();
 	int getDestination();
-	std::string toString();
+	utility::string_t toString();
 };

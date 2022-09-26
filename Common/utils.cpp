@@ -25,28 +25,28 @@ utility::char_t* stringToCharT(const std::string text)
     return ret;
 }
 
-std::string sendGetRequest(std::string address)
+utility::string_t sendGetRequest(utility::string_t address)
 {
-    http_client client(stringToCharT(address));
+    http_client client(address.c_str());
     return client.request(methods::GET).then([=](http_response response)
         {
             if (response.status_code() == status_codes::OK)
             {
                 auto body = response.extract_string().get();
-                return stringTToString(body);
+                return body;
             }
         }).get();
 }
 
-std::string sendPostRequest(std::string address, json::value body)
+utility::string_t sendPostRequest(utility::string_t address, json::value body)
 {
-    http_client client(stringToCharT(address));
+    http_client client(address);
     return client.request(methods::POST, L"", body).then([=](http_response response)
         {
             if (response.status_code() == status_codes::OK)
             {
                 auto body = response.extract_string().get();
-                return stringTToString(body);
+                return body;
             }
         }).get();
 }

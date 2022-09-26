@@ -1,16 +1,18 @@
 #pragma once
-#include<string>
+#include <string>
+#include <cpprest/http_msg.h>
+using namespace utility;
 
 class BFSResult
 {
 public:
 	BFSResult(int* parents, bool success, int parentsSize);
-	BFSResult(std::string text);
+	BFSResult(string_t text);
 	~BFSResult();
 	int* getParents();
 	bool getSuccess();
 	int getParentsSize();
-	std::string toString();
+	string_t toString();
 private:
 	int* parents;
 	bool success;

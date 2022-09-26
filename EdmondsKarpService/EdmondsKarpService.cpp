@@ -19,10 +19,10 @@ int EdmondsKarpService::calculateMaxFlow(Graph* graph, int source, int destinati
 	int u, v;
 	auto residualGraph = graph->clone();
 	int maxFlow = 0;
-	std::string address = BFS_SERVICE_URL + std::string("bfs");
+	string_t address = BFS_SERVICE_URL + string_t(U("bfs"));
 	auto bfsRequest = new BFSRequest(residualGraph, source, destination);
 	web::json::value body;
-	body[U("request")] = web::json::value::string(conversions::to_string_t(bfsRequest->toString()));
+	body[U("request")] = web::json::value::string(bfsRequest->toString());
 	auto response = sendPostRequest(address, body);
 	auto bfsResult = new BFSResult(response);
 	while (bfsResult->getSuccess())
@@ -43,7 +43,7 @@ int EdmondsKarpService::calculateMaxFlow(Graph* graph, int source, int destinati
 		delete bfsResult;
 		delete bfsRequest;
 		bfsRequest = new BFSRequest(residualGraph, source, destination);
-		body[U("request")] = web::json::value::string(conversions::to_string_t(bfsRequest->toString()));
+		body[U("request")] = web::json::value::string(bfsRequest->toString());
 		response = sendPostRequest(address, body);
 		bfsResult = new BFSResult(response);
 	}
