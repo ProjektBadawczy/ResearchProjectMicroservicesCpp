@@ -3,7 +3,7 @@
 #include "../Common/BFSResult.h"
 #include "../Common/BFSRequest.h"
 #include "../Common/utils.h"
-#include "defines.h"
+#include "../Common/defines.h"
 #include <stdexcept>
 #include <cpprest/http_client.h>
 

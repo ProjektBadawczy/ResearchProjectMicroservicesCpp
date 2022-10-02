@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFSService", "BFSService\BF
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EdmondsKarpService", "EdmondsKarpService\EdmondsKarpService.vcxproj", "{6ED49D90-AE2E-4218-8829-1CE88A93D754}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PushRelabelService", "PushRelabelService\PushRelabelService.vcxproj", "{E5E03008-A9B0-4162-8B80-9751121E26F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{6ED49D90-AE2E-4218-8829-1CE88A93D754}.Release|x64.Build.0 = Release|x64
 		{6ED49D90-AE2E-4218-8829-1CE88A93D754}.Release|x86.ActiveCfg = Release|Win32
 		{6ED49D90-AE2E-4218-8829-1CE88A93D754}.Release|x86.Build.0 = Release|Win32
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Debug|x64.ActiveCfg = Debug|x64
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Debug|x64.Build.0 = Debug|x64
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Debug|x86.ActiveCfg = Debug|Win32
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Debug|x86.Build.0 = Debug|Win32
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x64.ActiveCfg = Release|x64
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x64.Build.0 = Release|x64
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x86.ActiveCfg = Release|Win32
+		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

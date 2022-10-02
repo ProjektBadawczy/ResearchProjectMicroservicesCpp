@@ -3,7 +3,7 @@
 #include "../Common/BasicController.h"
 #include <vector>
 #include "EdmondsKarpService.h"
-#include "defines.h"
+#include "../Common/defines.h"
 
 
 class EdmondsKarpController : public BasicController {

@@ -18,31 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Common\BasicController.h" />
-    <ClInclude Include="..\Common\BFSRequest.h" />
-    <ClInclude Include="..\Common\BFSResult.h" />
-    <ClInclude Include="..\Common\defines.h" />
-    <ClInclude Include="..\Common\Graph.h" />
-    <ClInclude Include="..\Common\utils.h" />
-    <ClInclude Include="EdmondsKarpController.h" />
-    <ClInclude Include="EdmondsKarpService.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Common\BasicController.cpp" />
-    <ClCompile Include="..\Common\BFSRequest.cpp" />
-    <ClCompile Include="..\Common\BFSResult.cpp" />
-    <ClCompile Include="..\Common\Graph.cpp" />
-    <ClCompile Include="..\Common\utils.cpp" />
-    <ClCompile Include="EdmondsKarpController.cpp" />
-    <ClCompile Include="EdmondsKarpService.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6ed49d90-ae2e-4218-8829-1ce88a93d754}</ProjectGuid>
-    <RootNamespace>EdmondsKarpService</RootNamespace>
+    <ProjectGuid>{e5e03008-a9b0-4162-8b80-9751121e26f2}</ProjectGuid>
+    <RootNamespace>PushRelabelService</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,6 +126,24 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\BasicController.h" />
+    <ClInclude Include="..\Common\defines.h" />
+    <ClInclude Include="..\Common\DirectedGraph.h" />
+    <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\utils.h" />
+    <ClInclude Include="PushRelabelController.h" />
+    <ClInclude Include="PushRelabelService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\BasicController.cpp" />
+    <ClCompile Include="..\Common\DirectedGraph.cpp" />
+    <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\utils.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PushRelabelController.cpp" />
+    <ClCompile Include="PushRelabelService.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
