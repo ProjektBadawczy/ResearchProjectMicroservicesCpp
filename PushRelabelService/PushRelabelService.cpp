@@ -13,7 +13,7 @@ PushRelabelService::~PushRelabelService()
 int PushRelabelService::calculateMaxFlow(DirectedGraph* graph, int source, int destination)
 {
 	auto residualGraph = initResidualGraph(graph);
-	std::queue<int> queue;
+	auto queue = new std::queue<int>();
 	int* e = new int[graph->getNumberOfVertices()]();
 	int* h = new int[graph->getNumberOfVertices()]();
 	bool* inQueue = new bool[graph->getNumberOfVertices()]();
@@ -25,14 +25,14 @@ int PushRelabelService::calculateMaxFlow(DirectedGraph* graph, int source, int d
 		e[v->i] = v->w;
 		if (v->i != destination)
 		{
-			queue.push(v->i);
+			queue->push(v->i);
 			inQueue[v->i] = true;
 		}
 	}
-	while (!queue.empty())
+	while (!queue->empty())
 	{
-		int u = queue.front();
-		queue.pop();
+		int u = queue->front();
+		queue->pop();
 		inQueue[u] = false;
 		relabel(u, h, residualGraph);
 		push(u, e, h, queue, inQueue, residualGraph, source, destination);
@@ -41,6 +41,7 @@ int PushRelabelService::calculateMaxFlow(DirectedGraph* graph, int source, int d
 	delete[] e;
 	delete[] h;
 	delete[] inQueue;
+	delete queue;
 	delete residualGraph;
 	return ret;
 }
@@ -87,7 +88,7 @@ void PushRelabelService::relabel(int u, int* h, DirectedGraph* residualGraph)
 	h[u] = minHeight + 1;
 }
 
-void PushRelabelService::push(int u, int* e, int* h, std::queue<int> queue, 
+void PushRelabelService::push(int u, int* e, int* h, std::queue<int>* queue, 
 	bool* inQueue, DirectedGraph* residualGraph, int source, int destination)
 {
 	for (auto v : residualGraph->getAdjacencyList()[u])
@@ -107,7 +108,7 @@ void PushRelabelService::push(int u, int* e, int* h, std::queue<int> queue,
 
 			if (!inQueue[v->i] && v->i != source && v->i != destination)
 			{
-				queue.push(v->i);
+				queue->push(v->i);
 				inQueue[v->i] = true;
 			}
 		}
@@ -118,7 +119,7 @@ void PushRelabelService::push(int u, int* e, int* h, std::queue<int> queue,
 	// above 0, add it to queue again
 	if (e[u] != 0)
 	{
-		queue.push(u);
+		queue->push(u);
 		inQueue[u] = true;
 	}
 }
