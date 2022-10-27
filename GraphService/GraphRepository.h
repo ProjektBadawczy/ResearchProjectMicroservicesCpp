@@ -13,5 +13,11 @@ private:
 	void initRepository();
 	Graph** graphs;
 	DirectedGraph** directedGraphs;
+	const string filenames[5] = {"graphs/big_dense_set.json", 
+		"graphs/big_sparse_set.json", 
+		"graphs/random_set.json",
+		"graphs/small_dense_set.json",
+		"graphs/small_sparse_set.json"};
+	void readGraphsFromJson(string path);
 	int size;
 };

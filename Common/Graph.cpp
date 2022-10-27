@@ -15,9 +15,9 @@ Graph::Graph(string_t text)
 {
     size_t pos = 0;
     size_t nextCommaPos = 0;
-    string_t idName = U("id: ");
-    string_t numberOfVerticesName = U("numberOfVertices: ");
-    string_t adjacencyMatrixName = U("adjacencyMatrix: ");
+    string_t idName = U("\"id\": ");
+    string_t numberOfVerticesName = U("\"numberOfVertices\": ");
+    string_t adjacencyMatrixName = U("\"adjacencyMatrix\": ");
     // find id value
     pos = text.find(idName, pos);
     nextCommaPos = text.find(U(","), pos);
@@ -50,7 +50,8 @@ Graph::Graph(string_t text)
             }
             stringNumber = text.substr(pos, nextCommaPos - pos);
             newAdjacencyMatrix[i][j] = stoi(stringNumber);
-            pos = nextCommaPos + 1;
+			// move pos after comma and space
+            pos = nextCommaPos + 2;
         }
         pos = pos + 2;
     }
@@ -104,13 +105,13 @@ string_t Graph::toString()
 {
 	string_t result = U("");
 	result += U("{");
-	result += U("id: ");
+	result += U("\"id\": ");
 	result += to_string_t(to_string(id));
-	result += U(",");
-	result += U("numberOfVertices: ");
+	result += U(", ");
+	result += U("\"numberOfVertices\": ");
 	result += to_string_t(to_string(numberOfVertices));
-	result += U(",");
-	result += U("adjacencyMatrix: [");
+	result += U(", ");
+	result += U("\"adjacencyMatrix\": [");
 	for (int i = 0; i < numberOfVertices; i++)
 	{
 		result += U("[");
@@ -119,13 +120,13 @@ string_t Graph::toString()
 			result += to_string_t(to_string(adjacencyMatrix[i][j]));
 			if (j != numberOfVertices - 1)
 			{
-				result += U(",");
+				result += U(", ");
 			}
 		}
 		result += U("]");
 		if (i != numberOfVertices - 1)
 		{
-			result += U(",");
+			result += U(", ");
 		}
 	}
 	result += U("]");
