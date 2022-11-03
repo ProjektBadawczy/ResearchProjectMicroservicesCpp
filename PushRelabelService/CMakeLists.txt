@@ -1,4 +1,4 @@
 project(PushRelabelService)
 find_package(cpprestsdk REQUIRED)
-add_executable(PushRelabelService main.cpp BasicController.cpp Graph.cpp PushRelabelController.cpp PushRelabelService.cpp DirectedGraph.cpp utils.cpp)
-target_link_libraries(PushRelabelService PUBLIC cpprestsdk::cpprest)
+add_executable(PushRelabelService main.cpp ../Common/BasicController.cpp ../Common/Graph.cpp PushRelabelController.cpp PushRelabelService.cpp ../Common/DirectedGraph.cpp ../Common/KeyboardInterruptHandler.cpp ../Common/utils.cpp)
+target_link_libraries(PushRelabelService PUBLIC cpprestsdk::cpprest ssl crypto)

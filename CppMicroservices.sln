@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EdmondsKarpService", "Edmon
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PushRelabelService", "PushRelabelService\PushRelabelService.vcxproj", "{E5E03008-A9B0-4162-8B80-9751121E26F2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApiGateway", "ApiGateway\ApiGateway.vcxproj", "{8712D75E-95D2-4EE7-A181-67EE03EA9791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x64.Build.0 = Release|x64
 		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x86.ActiveCfg = Release|Win32
 		{E5E03008-A9B0-4162-8B80-9751121E26F2}.Release|x86.Build.0 = Release|Win32
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Debug|x64.ActiveCfg = Debug|x64
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Debug|x64.Build.0 = Debug|x64
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Debug|x86.ActiveCfg = Debug|Win32
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Debug|x86.Build.0 = Debug|Win32
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Release|x64.ActiveCfg = Release|x64
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Release|x64.Build.0 = Release|x64
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Release|x86.ActiveCfg = Release|Win32
+		{8712D75E-95D2-4EE7-A181-67EE03EA9791}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

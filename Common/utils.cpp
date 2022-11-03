@@ -32,7 +32,16 @@ utility::string_t sendGetRequest(utility::string_t address)
         {
             if (response.status_code() == status_codes::OK)
             {
+                size_t n = 0;
+                utility::string_t slash = U("\\\"");
                 auto body = response.extract_string().get();
+                n = body.find(slash, n);
+                while (n != utility::string_t::npos)
+                {
+                    body.replace(n, slash.length(), U("\""));
+                    n++;
+                    n = body.find(slash, n);
+                }
                 return body;
             }
         }).get();
@@ -41,11 +50,20 @@ utility::string_t sendGetRequest(utility::string_t address)
 utility::string_t sendPostRequest(utility::string_t address, json::value body)
 {
     http_client client(address);
-    return client.request(methods::POST, L"", body).then([=](http_response response)
+    return client.request(methods::POST, U(""), body).then([=](http_response response)
         {
             if (response.status_code() == status_codes::OK)
             {
+                size_t n = 0;
+                utility::string_t slash = U("\\\"");
                 auto body = response.extract_string().get();
+                n = body.find(slash, n);
+                while (n != utility::string_t::npos)
+                {
+                    body.replace(n, slash.length(), U("\""));
+                    n++;
+                    n = body.find(slash, n);
+                }
                 return body;
             }
         }).get();
@@ -59,4 +77,30 @@ std::string stringTToString(const utility::string_t text)
         ret += text[i];
     }
     return ret;
+}
+
+web::json::value sendGetRequestAsJson(utility::string_t address)
+{
+    http_client client(address.c_str());
+    return client.request(methods::GET).then([=](http_response response)
+        {
+            if (response.status_code() == status_codes::OK)
+            {
+                auto body = response.extract_json().get();
+                return body;
+            }
+        }).get();
+}
+
+web::json::value sendPostRequestAsJson(utility::string_t address, json::value body)
+{
+    http_client client(address);
+    return client.request(methods::POST, U(""), body).then([=](http_response response)
+        {
+            if (response.status_code() == status_codes::OK)
+            {
+                auto body = response.extract_json().get();
+                return body;
+            }
+        }).get();
 }

@@ -91,7 +91,7 @@ DirectedGraph::DirectedGraph(string_t text)
 			pos = nextStopPos + 1;
 		}
 		// move after comma and opening bracket
-		pos += 2;
+		pos += 3;
 	}
 }
 

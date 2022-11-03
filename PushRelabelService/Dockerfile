@@ -8,7 +8,7 @@ EXPOSE 8080
 
 COPY ./ /src/PushRelabelService
 
-COPY ../Common /src/Common
+COPY ./Common /src/Common
 
 RUN mkdir /src/build
 

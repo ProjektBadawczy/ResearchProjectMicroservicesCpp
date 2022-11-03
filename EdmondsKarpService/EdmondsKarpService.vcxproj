@@ -24,6 +24,7 @@
     <ClInclude Include="..\Common\BFSResult.h" />
     <ClInclude Include="..\Common\defines.h" />
     <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\KeyboardInterruptHandler.h" />
     <ClInclude Include="..\Common\utils.h" />
     <ClInclude Include="EdmondsKarpController.h" />
     <ClInclude Include="EdmondsKarpService.h" />
@@ -33,6 +34,7 @@
     <ClCompile Include="..\Common\BFSRequest.cpp" />
     <ClCompile Include="..\Common\BFSResult.cpp" />
     <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\KeyboardInterruptHandler.cpp" />
     <ClCompile Include="..\Common\utils.cpp" />
     <ClCompile Include="EdmondsKarpController.cpp" />
     <ClCompile Include="EdmondsKarpService.cpp" />

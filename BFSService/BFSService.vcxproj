@@ -130,7 +130,9 @@
     <ClInclude Include="..\Common\BasicController.h" />
     <ClInclude Include="..\Common\BFSRequest.h" />
     <ClInclude Include="..\Common\BFSResult.h" />
+    <ClInclude Include="..\Common\defines.h" />
     <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\KeyboardInterruptHandler.h" />
     <ClInclude Include="..\Common\utils.h" />
     <ClInclude Include="BFSController.h" />
     <ClInclude Include="BFSService.h" />
@@ -140,6 +142,7 @@
     <ClCompile Include="..\Common\BFSRequest.cpp" />
     <ClCompile Include="..\Common\BFSResult.cpp" />
     <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\KeyboardInterruptHandler.cpp" />
     <ClCompile Include="..\Common\utils.cpp" />
     <ClCompile Include="BFSController.cpp" />
     <ClCompile Include="BFSService.cpp" />

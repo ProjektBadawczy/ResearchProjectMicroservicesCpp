@@ -128,8 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\BasicController.h" />
+    <ClInclude Include="..\Common\defines.h" />
     <ClInclude Include="..\Common\DirectedGraph.h" />
     <ClInclude Include="..\Common\Graph.h" />
+    <ClInclude Include="..\Common\KeyboardInterruptHandler.h" />
     <ClInclude Include="GraphController.h" />
     <ClInclude Include="GraphRepository.h" />
     <ClInclude Include="GraphService.h" />
@@ -138,6 +140,7 @@
     <ClCompile Include="..\Common\BasicController.cpp" />
     <ClCompile Include="..\Common\DirectedGraph.cpp" />
     <ClCompile Include="..\Common\Graph.cpp" />
+    <ClCompile Include="..\Common\KeyboardInterruptHandler.cpp" />
     <ClCompile Include="GraphController.cpp" />
     <ClCompile Include="GraphRepository.cpp" />
     <ClCompile Include="GraphService.cpp" />

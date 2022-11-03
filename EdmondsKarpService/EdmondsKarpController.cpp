@@ -23,13 +23,13 @@ void EdmondsKarpController::initRestOpHandlers()
 void EdmondsKarpController::handleGet(http_request message)
 {
     vector<utility::string_t> path = requestPath(message);
-    if (path.empty()) 
+    if (path.empty())
     {
         message.reply(status_codes::BadRequest);
     }
-    else 
+    else
     {
-        if(path[0] == to_string_t("edmonds-karp"))
+        if (path[0] == to_string_t("edmonds-karp"))
         {
             auto queries = requestQuery(message);
             int id = stoi(queries[to_string_t("id")]);

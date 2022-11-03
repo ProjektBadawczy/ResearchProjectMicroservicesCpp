@@ -27,10 +27,18 @@ void BFSController::handlePost(http_request message)
     }
     else
     {
-        // WIP - need to change this to return actual value and not a dummy
         if (path[0] == to_string_t("bfs"))
         {
             string_t requestBody = message.extract_string().get();
+            size_t n = 0;
+            utility::string_t slash = U("\\\"");
+            n = requestBody.find(slash, n);
+            while (n != utility::string_t::npos)
+            {
+                requestBody.replace(n, slash.length(), U("\""));
+                n++;
+                n = requestBody.find(slash, n);
+            }
             BFSRequest* request = new BFSRequest(requestBody);
             BFSResult* result = bfsService->bfs(request);
             json::value bfsJson;

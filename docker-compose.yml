@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+  graphservice:
+    environment:
+      - INSIDE_DOCKER=1
+    build: ./GraphService/
+    ports:
+      - 8090:8090
+  bfsservice:
+    environment:
+      - INSIDE_DOCKER=1
+    build: ./BFSService/
+    ports:
+      - 8091:8091
+  edmondskarpservice:
+    environment:
+      - INSIDE_DOCKER=1
+    build: ./EdmondsKarpService/
+    ports:
+      - 8092:8092
+  pushrelabelservice:
+    environment:
+      - INSIDE_DOCKER=1
+    build: ./PushRelabelService/
+    ports:
+      - 8093:8093
+  apigateway:
+    environment:
+      - INSIDE_DOCKER=1
+    build: ./ApiGateway/
+    ports:
+      - 8094:8094

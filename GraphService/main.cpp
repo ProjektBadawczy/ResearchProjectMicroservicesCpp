@@ -2,6 +2,8 @@
 #include "GraphController.h"
 #include "GraphRepository.h"
 #include "GraphService.h"
+#include "../Common/KeyboardInterruptHandler.h"
+#include "../Common/defines.h"
 
 using namespace std;
 
@@ -9,12 +11,8 @@ int main()
 {
 	auto graphRepository = new GraphRepository();
 	auto graphService = new GraphService(graphRepository);
-	GraphController serv("127.0.0.1", "8090", graphService);
+	GraphController serv(ADDRESS, "8090", graphService);
 	serv.setEndpoint("/api");
 	serv.accept().wait();
-	while(true)
-	{
-		
-	}
-	return 0;
+	return KeyboardInterruptHandler::handleKeyboardInterrupt();
 }

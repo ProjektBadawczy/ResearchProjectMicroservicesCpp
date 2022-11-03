@@ -8,9 +8,11 @@ EXPOSE 8080
 
 COPY ./ /src/GraphService
 
-COPY ../Common /src/Common
+COPY ./Common /src/Common
 
 RUN mkdir /src/build
+
+COPY ./graphs/ /src/build/graphs
 
 WORKDIR /src/build
 
