@@ -11,8 +11,8 @@ public:
 	DirectedGraph* getDirectedGraph(int id);
 private:
 	void initRepository();
-	Graph** graphs;
-	DirectedGraph** directedGraphs;
+	vector<Graph*> graphs;
+	vector<DirectedGraph*> directedGraphs;
 	const string filenames[5] = {"graphs/big_dense_set.json", 
 		"graphs/big_sparse_set.json", 
 		"graphs/random_set.json",

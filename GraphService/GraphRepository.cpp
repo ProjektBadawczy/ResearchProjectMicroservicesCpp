@@ -4,35 +4,32 @@ GraphRepository::GraphRepository()
 {
 	// set initial size of array to 100
 	// expand when necessary
-	size = 100;
-	graphs = new Graph* [size];
-	directedGraphs = new DirectedGraph * [size];
-	for (int i = 0; i < size; i++)
-	{
-		graphs[i] = nullptr;
-		directedGraphs[i] = nullptr;
-	}
+	// leave current size as 0
+	// until graphs are actually inserted
+	size = 0;
+	graphs.resize(100);
+	directedGraphs.resize(100);
 	initRepository();
 }
 
 GraphRepository::~GraphRepository()
 {
-	for (int i = 0; i < size; i++)
+	for (auto graph : graphs)
 	{
-		if (graphs[i] != nullptr)
+		if (graph != nullptr)
 		{
-			delete graphs[i];
+			delete graph;
 		}
 	}
-	for (int i = 0; i < size; i++)
+	graphs.clear();
+	for (auto directedGraph : directedGraphs)
 	{
-		if (directedGraphs[i] != nullptr)
+		if (directedGraph != nullptr)
 		{
-			delete directedGraphs[i];
+			delete directedGraph;
 		}
 	}
-	delete[] graphs;
-	delete[] directedGraphs;
+	directedGraphs.clear();
 }
 
 void GraphRepository::initRepository()
@@ -42,12 +39,22 @@ void GraphRepository::initRepository()
 
 Graph* GraphRepository::getGraph(int id)
 {
-	return graphs[id]->clone();
+	auto predicate = [=](Graph* graph)
+	{
+		return graph != nullptr ? graph->getId() == id : false;
+	};
+	auto result = find_if(graphs.begin(), graphs.end(), predicate);
+	return result != graphs.end() ? (*result)->clone() : nullptr;
 }
 
 DirectedGraph* GraphRepository::getDirectedGraph(int id)
 {
-	return directedGraphs[id]->clone();
+	auto predicate = [=](DirectedGraph* directedGraph)
+	{
+		return directedGraph != nullptr ? directedGraph->getId() == id : false;
+	};
+	auto result = find_if(directedGraphs.begin(), directedGraphs.end(), predicate);
+	return result != directedGraphs.end() ? (*result)->clone() : nullptr;
 }
 
 void GraphRepository::readGraphsFromJson(string path)
@@ -71,13 +78,14 @@ void GraphRepository::readGraphsFromJson(string path)
 		// graphs always end with "},"
 		nextStopPos = buffer.str().find("},", pos);
 		graph = new Graph(utility::conversions::to_string_t(buffer.str().substr(pos, nextStopPos - pos + 1)));
-		this->graphs[graph->getId()] = graph;
+		this->graphs.push_back(graph);
 		pos = buffer.str().find(directedGraphName, nextStopPos);
 		if (pos == string::npos) break;
 		// directed graphs always end with "}}"
 		nextStopPos = buffer.str().find("}}", pos);
 		directedGraph = new DirectedGraph(utility::conversions::to_string_t(buffer.str().substr(pos, nextStopPos - pos + 1)));
-		this->directedGraphs[directedGraph->getId()] = directedGraph;
+		this->directedGraphs.push_back(directedGraph);
+		size++;
 	}
 }
 
